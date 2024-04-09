@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.isProd ? '' : 'dev - ' %>后台管理系统</title>
+
+      <% if(htmlWebpackPlugin.options.isProd){ %>
+      <!-- cdn加速 nprogress 的样式表文件 -->
+      <link rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+      <script src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js"></script>
+      <!-- element-ui 的样式表文件 -->
+      <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.5/theme-chalk/index.css" />
+
+      <!--     cdn加速js文件 -->
+      <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+      <script src="https://cdn.staticfile.org/vue-router/3.2.0/vue-router.min.js"></script>
+      <script src="https://cdn.staticfile.org/axios/0.19.2/axios.min.js"></script>
+
+      <!--      echart js文件        -->
+      <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.min.js"></script>
+      <script src="https://cdn.bootcdn.net/ajax/libs/vue-echarts/4.0.2/vue-echarts.min.js"></script>
+
+      <!-- element-ui 的 js 文件 -->
+      <script src="https://cdn.staticfile.org/element-ui/2.15.5/index.js"></script>
+      <!--   mavon-editor -->
+<!--      <script src="https://cdn.jsdelivr.net/gh/zhaokuohaha/mavonEditor@feature/lib-name/dist/mavon-editor.js"></script>-->
+<!--      <link rel="stylesheet" href="" />-->
+      <% } %>
+      <!--   qq人机验证   -->
+    <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

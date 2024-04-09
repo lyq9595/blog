@@ -1,0 +1,125 @@
+# 配置端口
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 21600
+
+# 配置mysql数据库
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://你的ip:3306/blog?serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: mysql用户名
+    password: mysql密码
+    hikari:
+      minimum-idle: 5
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 连接池名称
+      pool-name: MyHikariCP
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  # redis配置
+  redis:
+    host: 你的ip
+    port: 6379
+    password: redis密码
+
+  # mq配置
+  rabbitmq:
+    host: 你的ip
+    port: 5672
+    username: 用户名
+    password: 密码
+    #确认消息已发送到交换机(Exchange) 可以把publisher-confirms: true 替换为  publisher-confirm-type: correlated
+    publisher-confirm-type: correlated
+    #确认消息已发送到队列(Queue)
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual  #开启手动确认，none代表不确认,manual才是手动确认,auto自动确认
+        retry:
+          enabled: false #开启重试
+          max-attempts: 3 #最大重试次数，默认3次，达到次数后，会进行消息移除。若绑定了死信队列，则会放入死信队列中
+          initial-interval: 5000ms  #重试间隔时间
+
+
+
+
+
+  # es配置 搜索模式为mysql可删除
+  elasticsearch:
+    rest:
+      uris: 你的ip:9200
+  # 邮箱配置
+  mail:
+    host: smtp.qq.com
+    username: 你的qq邮箱地址
+    password: 授权码
+    default-encoding: UTF-8
+    port: 587
+    properties:
+      mail:
+      smtp:
+      auth: true
+      socketFactory:
+      class: javax.net.ssl.SSLSocketFactory
+  # 上传图片大小限制
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size:  100MB
+
+# 配置MybatisPlus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+# 搜索模式 可选 elasticsearch或mysql
+search:
+  mode: es和mysql二选1
+
+
+# 上传模式 可选 oss或local  （/一定不能去！！！）
+upload:
+  mode: oss或者local
+  local:
+    # nginx映射本地文件路径，无域名则为 ip +端口
+    url: http://填上传文件子域名/
+    # 本地文件存储路径
+    path: 填服务器存储地址 绝对路径 如/usr/data/upload
+  oss:
+    url: 填你的bucke域名地址
+    endpoint: 填endpoint信息
+    accessKeyId: 填accessKeyId信息
+    accessKeySecret: 填accessKeySecret信息
+    bucketName: 填创建的bucketName
+
+# 网站前台域名（邮件通知用）
+website:
+  url: http://域名
+
+#第三方配置信息
+qq:
+  app-id: xxx
+  check-token-url: https://graph.qq.com/oauth2.0/me?access_token={access_token}
+  user-info-url: https://graph.qq.com/user/get_user_info?openid={openid}&access_token={access_token}&oauth_consumer_key={oauth_consumer_key}
+
+weibo:
+  app-id: xxx
+  app-secret: xxx
+  grant-type: authorization_code
+  redirect-url: https://你的域名/oauth/login/weibo
+  access-token-url: https://api.weibo.com/oauth2/access_token
+  user-info-url: https://api.weibo.com/2/users/show.json?uid={uid}&access_token={access_token}
