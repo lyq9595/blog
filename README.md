@@ -118,6 +118,8 @@ blog-springboot
 
 详见文章[项目部署教程](http://lyqzzk.top/articles/84)
 
+哔哩哔哩视频：[SpringBoot+Vue个人博客网站，超详细保姆级搭建教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1sZ421v7mi/)
+
 ## 注意事项
 
 - 项目拉下来运行后，可到后台管理页面网站配置处修改博客配置信息.
