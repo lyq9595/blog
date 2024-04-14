@@ -118,7 +118,7 @@ blog-springboot
 
 详见文章[项目部署教程](http://lyqzzk.top/articles/84)
 
-哔哩哔哩视频：[SpringBoot+Vue个人博客网站，超详细保姆级搭建教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1sZ421v7mi/)
+哔哩哔哩教程视频：[SpringBoot+Vue个人博客网站，超详细保姆级搭建教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1sZ421v7mi/)
 
 ## 注意事项
 
@@ -134,9 +134,11 @@ blog-springboot
 
 ## 联系方式
 
-微信lyq777iii
+微信xl110387
 
+QQ交流群地址 **895893271**
 
+![](https://lyqblog.oss-cn-beijing.aliyuncs.com/QQ%E6%88%AA%E5%9B%BE20240413181547.png)
 
 
 
